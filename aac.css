@@ -1,0 +1,131 @@
+/* Reset some default browser styles */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a background image and text color */
+body {
+    background-image: url('background.jpg'); /* Replace 'background.jpg' with your image path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #000; /* Black text on a dark background */
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin-top: 0; /* No margin at the top */
+}
+
+/* Style the header with a semi-transparent overlay */
+header {
+    background-image: url('header-background.jpg'); /* Replace 'header-background.jpg' with your image path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background color */
+    color: #fff;
+    text-align: center;
+    padding: 100px 0; /* Increase padding for a larger header */
+}
+
+/* Make main heading text bold and more visible */
+header h1 {
+    font-size: 36px;
+    font-weight: bold; /* Bold text */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for better visibility */
+}
+
+/* Style subheadings (h2 and h3) */
+h2, h3 {
+    color: #000; /* Black text color for subheadings */
+    font-weight: bold; /* Bold subheadings */
+}
+
+/* Style sections */
+section {
+    margin: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent light background color */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Rounded corners for sections */
+}
+
+/* Style links */
+a {
+    color: #0074D9;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* Style buttons */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0074D9;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold; /* Bold button text */
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Style the navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent dark background color */
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.back-button {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.auth-buttons a {
+    margin-left: 20px;
+}
+
+.speech-interface {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1001; 
+}
+
+.speech-interface h2 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.speech-interface > div {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin: 20px;
+}

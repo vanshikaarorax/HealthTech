@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Urban Sound Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333; 
+            color: #fff; 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 2.5em;
+        }
+
+        #container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7); 
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            animation: fadeIn 1s;
+        }
+
+        #status {
+            font-size: 1.2em;
+            margin: 20px 0;
+            animation: slideInUp 1s;
+        }
+
+        #startButton, #stopButton {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+
+        #startButton:disabled, #stopButton:disabled {
+            background-color: #444;
+            cursor: not-allowed;
+        }
+
+        #startButton:hover, #stopButton:hover {
+            background-color: #0056b3;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(20px);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Sound Detection for Deaf and Hard of Hearing People</h1>
+    <p id="status">YAMNet model loading...</p>
+    <button id="startButton" onclick="startSoundDetection()" disabled>Start</button>
+    <button id="stopButton" disabled onclick="stopSoundDetection()">Stop</button>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/yamnet"></script>
+    
+    <script>
+        let yamnetModel;
+        let audioContext;
+        let mediaStream;
+        let audioProcessor;
+
+        const statusElement = document.getElementById("status");
+        const startButton = document.getElementById("startButton");
+        const stopButton = document.getElementById("stopButton");
+
+        const modelUrl = "/Users/puneet/Downloads/Hackathon-main/Main/model.json"; 
+
+        async function loadYAMNetModel() {
+            try {
+                yamnetModel = await tf.loadLayersModel(modelUrl);
+                statusElement.textContent = "YAMNet model loaded. Click 'Start' to begin sound detection.";
+                startButton.disabled = false;
+            } catch (error) {
+                console.error("Error loading YAMNet model:", error);
+            }
+        }
+
+        async function startSoundDetection() {
+            startButton.disabled = true;
+            stopButton.disabled = false;
+            
+            statusElement.textContent = "Listening for urban sounds...";
+
+            try {
+                audioContext = new AudioContext();
+                mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                const source = audioContext.createMediaStreamSource(mediaStream);
+
+                // Initialize the audio processor node
+                audioProcessor = audioContext.createScriptProcessor(2048, 1, 1);
+                audioProcessor.onaudioprocess = processAudioData;
+
+                // Connect audio source to audio processor
+                source.connect(audioProcessor);
+
+                // Connect audio processor to the audio context's destination (speakers)
+                audioProcessor.connect(audioContext.destination);
+            } catch (error) {
+                console.error("Error starting sound detection:", error);
+            }
+        }
+
+        function stopSoundDetection() {
+            startButton.disabled = false;
+            stopButton.disabled = true;
+            
+            statusElement.textContent = "Sound detection stopped.";
+
+            if (mediaStream) {
+                mediaStream.getTracks().forEach((track) => track.stop());
+            }
+
+            if (audioContext) {
+                audioContext.close();
+            }
+        }
+
+        // Process audio data here using YAMNet model
+        async function processAudioData(event) {
+            const inputData = event.inputBuffer.getChannelData(0);
+            
+            // Preprocess the audio data if needed
+            const preprocessedData = preprocessAudioData(inputData);
+
+            // Make predictions using the YAMNet model
+            const predictions = await yamnetModel.predict(preprocessedData);
+
+            // Interpret the predictions (replace with your interpretation logic)
+            const soundCategories = interpretPredictions(predictions);
+
+            // Update the UI or perform actions based on soundCategories (replace with your UI update logic)
+            updateUI(soundCategories);
+        }
+
+        function preprocessAudioData(inputData) {
+            // Replace this with your audio preprocessing logic if needed
+            return inputData;
+        }
+
+        function interpretPredictions(predictions) {
+            // Replace this with your logic to interpret YAMNet predictions
+            // and map them to sound categories or labels
+            return [];
+        }
+
+        function updateUI(soundCategories) {
+            // Replace this with your UI update logic based on detected sound categories
+        }
+
+        loadYAMNetModel();
+    </script>
+</body>
+</html>

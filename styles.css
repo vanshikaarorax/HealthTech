@@ -1,0 +1,104 @@
+/* Reset default browser styles */
+body, h1, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a visually appealing background */
+body {
+    background: linear-gradient(135deg, #2c3e50 0%, #1e2b38 100%);
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+/* Style the header with a dark mode gradient */
+.site-header {
+    background: linear-gradient(135deg, #0074D9 0%, #0056b3 100%);
+    color: #fff;
+    text-align: center;
+    padding: 40px 0;
+}
+
+/* Style the header text with a professional font */
+.site-header h1 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+/* Style the main content sections */
+.site-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.technology-card {
+    flex-basis: calc(33.33% - 40px); /* Set width for 3 columns with spacing */
+    margin: 20px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    border-radius: 10px; /* Add rounded corners to the sections */
+}
+
+/* Style headings with a beautiful font */
+h1, h2, h3 {
+    font-weight: bold;
+    color: #958a89;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Style buttons with a professional look */
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #0074D9;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Style the footer */
+.site-footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+
+.image-box {
+    width: 10%; /* Set the width to 10% of the parent container */
+    height: 40px; /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto;
+    border: 2px solid #333;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .site-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .technology-card {
+        flex-basis: calc(100% - 40px); /* Full width with spacing */
+    }
+}

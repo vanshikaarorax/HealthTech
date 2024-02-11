@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Augmentative and Alternative Communication (AAC)</title>
+    <link rel="stylesheet" href="aac.css"> <!-- You can create a separate CSS file for styling -->
+</head>
+<body>
+    <div class="navbar">
+        <a href="hello.html" class="back-button">Back</a>
+        <div class="auth-buttons">
+            <a href="login.html" class="button">Login</a>
+            <a href="signup.html" class="button">Signup</a>
+        </div>
+    </div>
+    <header>
+        <h1>Augmentative and Alternative Communication (AAC)</h1>
+    </header>
+    
+    <section id="overview">
+        <h2>What is AAC?</h2>
+        <p>
+            Augmentative and Alternative Communication (AAC) refers to a set of communication methods and tools that are used to supplement or replace speech or writing for individuals who have difficulty with verbal communication. AAC systems can range from low-tech options like picture boards to high-tech devices with speech synthesis capabilities.
+        </p>
+    </section>
+    
+    <section id="importance">
+        <h2>Importance of AAC</h2>
+        <p>
+            AAC is essential for individuals who have conditions or disabilities that affect their ability to speak or write. It helps them express their thoughts, needs, and desires, enabling them to communicate effectively with others. AAC can significantly improve their quality of life by providing a means to interact with their environment and engage in social interactions.
+        </p>
+    </section>
+    
+    <section id="types">
+        <h2>Types of AAC</h2>
+        <ul>
+            <li>
+                <h3>Low-Tech AAC</h3>
+                <p>
+                    Low-tech AAC includes simple tools like communication boards with pictures, symbols, or words that individuals can point to or touch to communicate.
+                </p>
+            </li>
+            <li>
+                <h3>High-Tech AAC</h3>
+                <p>
+                    High-tech AAC involves electronic devices, such as speech-generating devices (SGDs), tablets, and software applications, that offer text-to-speech and voice output capabilities.
+                </p>
+            </li>
+            <li>
+                <h3>Symbols and Visual Supports</h3>
+                <p>
+                    Symbols and visual supports play a crucial role in AAC, helping individuals understand and convey messages. They may include PECS (Picture Exchange Communication System) and digital symbol libraries.
+                </p>
+            </li>
+        </ul>
+    </section>
+    
+    <section id="benefits">
+        <h2>Benefits of AAC</h2>
+        <p>
+            The use of AAC systems can have several benefits, including improved communication, enhanced social interactions, increased independence, and greater access to education and employment opportunities.
+        </p>
+    </section>
+
+    <section id="resources">
+        <h2>Additional Resources</h2>
+        <p>
+            For more information about AAC and related technologies, you can explore the following resources:
+            <ul>
+                <li><a href="https://www.asha.org/public/speech/disorders/aac/">American Speech-Language-Hearing Association (ASHA) - AAC</a></li>
+                <li><a href="https://www.aacandautism.com/">AAC and Autism</a></li>
+                <li><a href="https://www.assistiveware.com/">AssistiveWare - AAC Apps</a></li>
+            </ul>
+        </p>
+    </section>
+    <div class="speech-interface">
+        <div>
+            <button class="close-button" onclick="closeSpeechModal()">Close</button>
+            <h2>Speech Interface</h2>
+            <!-- ... Rest of your content ... -->
+
+<div>
+    <h3>Text-to-Speech</h3>
+    <textarea id="textToSpeechInput" placeholder="Enter text to convert to speech"></textarea>
+    <select id="langSelect">
+        <option value="en-US">English</option>
+        <option value="hi-IN">Hindi</option>
+        <!-- Add more language options as needed -->
+    </select>
+    <button id="textToSpeechBtn">Convert to Speech</button>
+    <audio id="textToSpeechOutput" controls>
+        <!-- Add your audio source here -->
+        <source src="" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</div>
+
+<!-- ... Rest of your content ... -->
+
+            <div>
+                <h3>Speech-to-Text</h3>
+                <button id="speechToTextBtn">Start Listening</button>
+                <p id="speechToTextInput"></p>
+            </div>
+        </div>
+    </div>
+
+    <button id="openSpeechModalBtn" class="button">Open Speech Interface</button>
+
+    <script src="aac.js"></script>
+    <footer>
+        <p>&copy; 2023 Your Website Name. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

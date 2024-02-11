@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto' ,sans-serif;
+}
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(background.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.navbar{
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    transform: translateY(-50px);
+    /* transform: translateX(-50px); */
+}
+
+.logo{
+    border-radius: 34px;
+    padding-top: 21px;
+    /* padding: 31px; */
+    top: 1px;
+    width: 154px;
+    height: 98px;
+    cursor: pointer;
+    transform: translateX(50px);
+}
+
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover:after{
+    width: 100%;
+}
+
+/* .row{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+}
+
+.row h1{
+    font-size: 70px;
+    margin-top: 80px;
+}
+
+.row {
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+} */
+
+.row{
+    display: flex;
+    height: 88%;
+    align-items: center;
+    transform: translateY(80px);
+}
+
+.col{
+    flex-basis: 50%;
+}
+
+h1{
+    color: #fff;
+    font-size: 100px;
+}
+
+h3{
+    color: #fff;
+    font-size: 25px;
+}
+
+p{
+    color: #fff;
+    font-size: 11px;
+    line-height: 15px;
+}
+
+button{
+    width: 180px;
+    color: #000;
+    font-size: 12px;
+    padding: 12px 0;
+    background: #fff;
+    border: 0;
+    border-radius: 20px;
+    outline: none;
+    margin-top: 30px;
+}
+
+.card{
+    width: 300px;
+    height: 330px;
+    display: inline-block;
+    border-radius: 10px;
+    padding: 15px 25px;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 10px 15px;
+    background-position: center;
+    background-size: cover;
+    transition: transform 0.5s;
+}
+
+.card1{
+    background-image: url(blind.jpg);
+}
+
+.card2{
+    background-image: url(deaf.jpg);
+}
+
+.card3{
+    background-image: url(mute.jpg);
+}
+
+.card:hover{
+    transform: translateY(-10px);
+}
+
+h5{
+    color: #fff;
+    text-shadow: 0 0 5px #999;
+}
+
+.card p{
+    /* color: #fff; */
+    text-shadow: 0 0 15px #000;
+    font-size: 15px;
+}

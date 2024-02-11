@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor's Office</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('background1.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .navbar { /* Change to your desired background color */
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+
+        .navbar .logo {
+            max-width: 100px;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin-right: 20px;
+        }
+
+        .navbar .button {
+            background-color: #3fbd99;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        .navbar .button:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            max-width: 800px;
+            margin-top: 60px; /* Adjust this margin to give space for the navbar */
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #3fbd99;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+        }
+
+        .button:focus {
+            outline: none;
+        }
+
+        .book-appointment-button:hover {
+            animation: pulse 1s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <img src="logo.png" class="logo">
+        <ul>
+            <li><a href="signup.html" class="button">Sign Up</a></li>
+            <li><a href="login.html" class="button">Login</a></li>
+            <li><a href="hello.html" class="button">Back</a></li> <!-- Add a Back button link -->
+        </ul>
+    </div>
+    <div class="container">
+        <div class="header">
+            <h1>Welcome to Government Hospital</h1>
+        </div>
+        <p>Choose an option below:</p>
+        <!-- Add a link to the "Book an Appointment" page -->
+        <a href="book appiontment.html" class="button book-appointment-button">Book an Appointment</a>
+
+        <!-- Add a link to the "Upload Document" page -->
+        <a href="upload document.html" class="button">Upload Document</a>
+
+        <button class="button" onclick="viewMedicalHistory()">View Medical History</button>
+    </div>
+
+    <script>
+        function bookAppointment() {
+            // Add code to handle booking appointment here
+            alert("Appointment booking feature coming soon!");
+        }
+
+        function viewMedicalHistory() {
+            // Add code to handle viewing medical history here
+            alert("Medical history feature coming soon!");
+        }
+
+        function scanReports() {
+            // Add code to handle scanning reports here
+            alert("Scanning reports feature coming soon!");
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image, Sound, and Gesture Detection</title>
+    <style>
+        body {
+            background-image: url('background.jpg'); /* Replace with your background image path */
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+            animation: fadeIn 1s;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Image, Sound, and Gesture Detection</h1>
+    
+        <!-- Button for Image Detection -->
+        <a href="main.html">
+            <button id="imageDetectionButton">Detect Object</button>
+        </a>
+    
+        <!-- Button for Sound Detection -->
+        <a href="urbansountdetection (1).html">
+            <button id="soundDetectionButton">Detect Sound</button>
+        </a>
+        
+        <!-- Button for Gesture to Text -->
+        <a href="gesture.html">
+            <button id="gestureDetectionButton">Gesture to Text</button>
+        </a>
+    </div>
+</body>
+</html>

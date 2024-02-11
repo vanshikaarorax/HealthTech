@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hand Gesture Recognition</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333; /* Dark background color */
+            color: white; /* Text color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        video {
+            width: 100%;
+            max-width: 640px;
+            height: auto;
+        }
+
+        canvas {
+            display: block;
+            margin-top: 20px;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hand Gesture Recognition</h1>
+    <video id="webcam" autoplay playsinline muted></video>
+    <canvas id="output" width="640" height="480"></canvas>
+
+    <script>
+        const hands = new Hands({ locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}` });
+        const videoElement = document.getElementById('webcam');
+        const canvasElement = document.getElementById('output');
+        const canvasCtx = canvasElement.getContext('2d');
+        
+        const fingerTipIds = [4, 8, 12, 16, 20];
+        
+        async function setupCamera() {
+            const stream = await navigator.mediaDevices.getUserMedia({ 'audio': false, 'video': true });
+            videoElement.srcObject = stream;
+        
+            return new Promise((resolve) => {
+                videoElement.onloadedmetadata = () => {
+                    resolve(videoElement);
+                };
+            });
+        }
+        
+        async function loadHands() {
+            await hands.load();
+            return hands;
+        }
+        
+        function countFingers(handLandmarks) {
+            let fingerCount = -1;
+        
+            for (const tipId of fingerTipIds) {
+                const tipLandmark = handLandmarks[tipId];
+                const tipX = tipLandmark.x * videoElement.width;
+                const tipY = tipLandmark.y * videoElement.height;
+        
+                const dipLandmark = handLandmarks[tipId - 2];
+                const dipX = dipLandmark.x * videoElement.width;
+                const dipY = dipLandmark.y * videoElement.height;
+        
+                if (tipY < dipY) {
+                    fingerCount++;
+                }
+            }
+        
+            return fingerCount;
+        }
+        
+        async function main() {
+            const video = await setupCamera();
+            video.play();
+        
+            const canvas = canvasElement;
+            canvas.width = video.width;
+            canvas.height = video.height;
+        
+            const hands = await loadHands();
+        
+            async function detectHands() {
+                canvasCtx.clearRect(0, 0, video.width, video.height);
+                canvasCtx.drawImage(video, 0, 0, video.width, video.height);
+        
+                const predictions = await hands.estimateHands(video);
+        
+                if (predictions.length > 0) {
+                    for (const prediction of predictions) {
+                        const fingerCount = countFingers(prediction.landmarks);
+                        const [x, y] = prediction.landmarks[9]; // Use a landmark for text placement
+        
+                        canvasCtx.font = '24px Arial';
+                        canvasCtx.fillStyle = 'green';
+                        canvasCtx.fillText(`Finger Count: ${fingerCount}`, x * video.width, y * video.height);
+        
+                        if (fingerCount === 2) {
+                            canvasCtx.font = '36px Arial';
+                            canvasCtx.fillStyle = 'red';
+                            canvasCtx.fillText('Victory', x * video.width - 40, y * video.height - 40);
+                        }
+                    }
+                }
+        
+                requestAnimationFrame(detectHands);
+            }
+        
+            detectHands();
+        }
+        
+        main();
+    </script>
+</body>
+</html>
