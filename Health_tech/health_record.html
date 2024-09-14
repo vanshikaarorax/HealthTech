@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haelth records</title>
+
+    <!-- Style Css Link -->
+    <link rel="stylesheet" href="apolocss.css">
+    <!-- Style Css Link -->
+
+    <!-- Font Awesome Cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font Awesome Cdn -->
+    <style>
+        .home {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .home .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+            max-width: 1200px;
+            padding: 2rem 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .home .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 1rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .home .header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .home .header button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .home .content {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 1rem 0;
+        }
+
+        .home .content div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 30%;
+            padding: 1rem;
+            border-right: 1px solid #ddd;
+        }
+
+        .home .content div:last-child {
+            border-right: none;
+        }
+
+        .home .content h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .home .content p {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #777;
+        }
+
+        .home .content img {
+            width: 30px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .home .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 1rem 0;
+            border-top: 1px solid #ddd;
+        }
+
+        .home .footer div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 30%;
+        }
+
+        .home .footer h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .home .footer p {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #777;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #ddd;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: #4CAF50;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <!-- Header Start -->
+    <div class="header">
+
+        <nav>
+            <input type="checkbox" id="show-search">
+            <input type="checkbox" id="show-menu">
+            <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+            <div class="content">
+                <a href="apolo.html">
+                    <div class="logo">
+                        WellCare
+                    </div>
+                </a>
+
+                <ul class="links">
+                    <li><a href="#" id="first">Buy medicine</a></li>
+                    <li><a href="#">Find Doctors</a></li>
+                    <li><a href="#product">Services</a></li>
+                    <li><a href="#">Health records</a></li>
+
+                </ul>
+            </div>
+            <label for="show-search" class="search-icon"><i class="fas fa-search"></i></label>
+            <form action="#" class="search-box">
+                <input type="text" placeholder="Search" required="">
+                <button type="submit" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
+            </form>
+
+        </nav>
+    </div>
+    <!-- Header End -->
+
+
+
+
+
+    <!-- Home Section Start -->
+    <div class="home">
+        <div class="container">
+            <div class="header">
+                <h1>Fitness Tracker</h1>
+                <button>More</button>
+            </div>
+            <div class="content">
+                <div>
+                    <h2 id="steps_count">0</h2>
+                    <p>Steps</p>
+                    <img src="data:image/png;base64,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"
+                        alt="Walking">
+                </div>
+                <div>
+                    <h2 id="mins_count">0</h2>
+                    <p>Mins</p>
+                    <img src="https://svgsilh.com/svg/3199472.svg" alt="Running">
+                </div>
+                <div>
+                    <h2 id="kcal_count">0</h2>
+                    <p>Kcal</p>
+                    <img src="https://www.svgrepo.com/show/70289/bike.svg" alt="Bike">
+                </div>
+            </div>
+            <div class="footer">
+                <div>
+                    <h2 id="score_count">0</h2>
+                    <p>Good Sleep score</p>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" id="score_percentage_progress" style="width: 0%;"></div>
+                </div>
+                <div>
+                    <h2 id="score_percentage">0%</h2>
+                    <p>Workouts this week</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Home Section End -->
+
+
+
+
+    <!-- Banner Start -->
+    <div class="banner">
+        <div class="banner-content">
+            <h5>Ask our health assistant for any information you would like to know about your health</h5>
+            <h3>Health assistant</h3>
+            <p> <br></p>
+            <button><a href="#products">ASK</a></button>
+        </div>
+    </div>
+    <!-- Banner End -->
+
+
+
+    <script>
+        function fetchJSONData() {
+            fetch("/DummyData/health_records.json")
+                .then((res) => {
+                    if (!res.ok) {
+                        throw new Error(`HTTP error! Status: ${res.status}`);
+                    }
+                    return res.json();
+                })
+                .then((data) => {
+                    document.getElementById("steps_count").innerText = data.user_data.steps
+                    document.getElementById("mins_count").innerText = data.user_data.mins
+                    document.getElementById("kcal_count").innerText = data.user_data.kcal
+                    document.getElementById("score_count").innerText = data.user_data.sleep_score
+                    document.getElementById("score_percentage").innerText = data.user_data.sleep_score + "%"
+                    document.getElementById("score_percentage_progress").style.width = `${data.user_data.sleep_score}%`
+                })
+                .catch((error) =>
+                    console.error("Unable to fetch data:", error));
+        }
+        fetchJSONData();
+    </script>
+
+
+
+</body>
+
+</html>

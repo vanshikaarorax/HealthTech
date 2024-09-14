@@ -1,0 +1,84 @@
+{
+    "diseases": [
+      {
+        "name": "Common Cold",
+        "symptoms": [
+          "Runny or stuffy nose",
+          "Sneezing",
+          "Coughing",
+          "Sore throat",
+          "Mild body aches"
+        ],
+        "precautions": [
+          "Wash hands frequently",
+          "Avoid close contact with sick individuals",
+          "Cover your mouth and nose when coughing or sneezing",
+          "Stay hydrated"
+        ]
+      },
+      {
+        "name": "Influenza (Flu)",
+        "symptoms": [
+          "Fever",
+          "Chills",
+          "Cough",
+          "Muscle or body aches",
+          "Fatigue"
+        ],
+        "precautions": [
+          "Get a flu vaccine annually",
+          "Wash hands regularly",
+          "Avoid touching your face",
+          "Stay home when sick"
+        ]
+      },
+      {
+        "name": "COVID-19",
+        "symptoms": [
+          "Fever",
+          "Cough",
+          "Shortness of breath",
+          "Loss of taste or smell",
+          "Fatigue"
+        ],
+        "precautions": [
+          "Wear masks in crowded places",
+          "Practice social distancing",
+          "Wash hands frequently",
+          "Follow local health guidelines"
+        ]
+      },
+      {
+        "name": "Allergies",
+        "symptoms": [
+          "Sneezing",
+          "Itchy or watery eyes",
+          "Runny nose",
+          "Skin rash or hives"
+        ],
+        "precautions": [
+          "Identify and avoid allergens",
+          "Use air purifiers",
+          "Keep windows closed during high pollen seasons",
+          "Take allergy medications as prescribed"
+        ]
+      },
+      {
+        "name": "Asthma",
+        "symptoms": [
+          "Shortness of breath",
+          "Chest tightness",
+          "Wheezing",
+          "Coughing"
+        ],
+        "precautions": [
+          "Use inhalers as prescribed",
+          "Avoid triggers like smoke and pollution",
+          "Keep living spaces clean",
+          "Regular exercise to improve lung function"
+        ]
+      }
+      // Add 25 more diseases with symptoms and precautions
+    ]
+  }
+  

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="blind.css">
+  <title>Image Detection</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div id="webcamContainer">
+    <video id="webcam"></video>
+    <div id="objectInfo"></div>
+    <div id="controls">
+      <button id="startDetection">Start Detection</button>
+      <button id="stopDetection" class="stop">Stop Detection</button>
+    </div>
+  </div>
+  
+</body>
+</html>

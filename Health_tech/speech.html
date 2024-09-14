@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #007BFF;
+        }
+
+        .container {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #startButton, #stopButton {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        #result {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        #text {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        #languages {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        #speakButton {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Voice Detection</h1>
+
+        <!-- Speech to Text Section -->
+        <button id="startButton">Start Listening</button>
+        <button id="stopButton" disabled>Stop Listening</button>
+        <p id="result"></p>
+
+        <!-- Text to Speech Section -->
+        <textarea id="text" placeholder="Enter text to be spoken..."></textarea>
+        <select id="languages">
+            <option value="en-US">English (US)</option>
+            <option value="es-ES">Spanish (Spain)</option>
+            <option value="fr-FR">French (France)</option>
+            <option value="hi-IN">Hindi (India)</option> <!-- Add Hindi option -->
+            <!-- Add more language options as needed -->
+        </select>
+        <button id="speakButton">Speak</button>
+    </div>
+
+    <!-- Speech to Text Script -->
+    <script>
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+        const result = document.getElementById('result');
+        let recognition;
+
+        if ('webkitSpeechRecognition' in window) {
+            recognition = new webkitSpeechRecognition();
+        } else if ('SpeechRecognition' in window) {
+            recognition = new SpeechRecognition();
+        } else {
+            console.log('Speech recognition not supported in this browser.');
+        }
+
+        recognition.continuous = true;
+        recognition.lang = 'en-US';
+
+        recognition.onstart = function () {
+            startButton.disabled = true;
+            stopButton.disabled = false;
+            result.textContent = 'Listening...';
+        };
+
+        recognition.onend = function () {
+            startButton.disabled = false;
+            stopButton.disabled = true;
+            result.textContent = 'Click "Start Listening" to begin.';
+        };
+
+        recognition.onresult = function (event) {
+            const transcript = event.results[event.results.length - 1][0].transcript;
+            result.textContent = transcript;
+        };
+
+        recognition.onerror = function (event) {
+            console.error('Speech recognition error:', event.error);
+            result.textContent = 'Error occurred. Please try again.';
+        };
+
+        startButton.addEventListener('click', function () {
+            recognition.start();
+        });
+
+        stopButton.addEventListener('click', function () {
+            recognition.stop();
+        });
+    </script>
+
+    <!-- Text to Speech Script -->
+    <script>
+        const textInput = document.getElementById('text');
+        const languageSelect = document.getElementById('languages');
+        const speakButton = document.getElementById('speakButton');
+
+        speakButton.addEventListener('click', () => {
+            const text = textInput.value;
+            const language = languageSelect.value;
+
+            if (text.trim() === '') {
+                alert('Please enter text to be spoken.');
+                return;
+            }
+
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = language;
+
+            window.speechSynthesis.speak(utterance);
+        });
+    </script>
+</body>
+</html>

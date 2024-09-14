@@ -1,0 +1,68 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #333; /* Dark grey background */
+    color: white; /* Text color */
+  }
+
+  #webcamContainer {
+    position: relative;
+    background-color: #444; /* Slightly lighter grey for webcam container */
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  video {
+    width: 100%;
+    max-width: 640px;
+    border: 2px solid #666; /* Border color for webcam */
+    border-radius: 5px;
+  }
+
+  #objectInfo {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(22, 18, 18, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  #controls {
+      display: flex;
+      gap: 83px;
+      position: absolute;
+      bottom: -94px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+  }
+
+  button {
+    padding: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  button.stop {
+    background-color: #f44336;
+  }
